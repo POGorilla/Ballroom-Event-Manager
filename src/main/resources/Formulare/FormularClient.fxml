@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.FormularClientController"
+      spacing="20" styleClass="dashboard-container" prefWidth="400">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20" />
+    </padding>
+    <children>
+        <Label fx:id="titleLabel" text="Adauga Client Nou" styleClass="dashboard-title" />
+
+        <GridPane hgap="10" vgap="15">
+            <columnConstraints>
+                <ColumnConstraints hgrow="NEVER" minWidth="100.0" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+
+            <Label text="Nume" styleClass="form-label" GridPane.rowIndex="0" />
+            <TextField fx:id="numeField" promptText="ex: Popescu" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="Prenume" styleClass="form-label" GridPane.rowIndex="1" />
+            <TextField fx:id="prenumeField" promptText="ex: Ion" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label text="Telefon" styleClass="form-label" GridPane.rowIndex="2" />
+            <TextField fx:id="telefonField" promptText="07xxxxxxxx" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label text="Email" styleClass="form-label" GridPane.rowIndex="3" />
+            <TextField fx:id="emailField" promptText="client@email.com" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            <Label text="Tip Client" styleClass="form-label" GridPane.rowIndex="4" />
+            <ComboBox fx:id="tipClientComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+        </GridPane>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="Salveaza" styleClass="quick-action-button" onAction="#handleSave" />
+            <Button fx:id="cancelButton" text="Anuleaza" styleClass="quick-action-button-secondary" onAction="#handleCancel" />
+        </HBox>
+    </children>
+</VBox>

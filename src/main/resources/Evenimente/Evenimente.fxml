@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.EvenimenteController"
+            styleClass="dashboard-container">
+    <padding>
+        <Insets top="10" right="20" bottom="20" left="20" />
+    </padding>
+
+    <top>
+        <VBox spacing="15">
+            <Label text="Management Evenimente" styleClass="dashboard-title" />
+
+            <HBox spacing="10" styleClass="section-card" alignment="BOTTOM_LEFT">
+                <VBox>
+                    <Label text="Cauta" styleClass="form-label" />
+                    <TextField fx:id="searchField" promptText="Nume client sau eveniment..." />
+                </VBox>
+                <VBox>
+                    <Label text="Tip Eveniment" styleClass="form-label" />
+                    <ComboBox fx:id="typeComboBox" prefWidth="150" />
+                </VBox>
+                <VBox>
+                    <Label text="Data" styleClass="form-label" />
+                    <DatePicker fx:id="datePicker" />
+                </VBox>
+                <Button fx:id="searchButton" text="Cauta" styleClass="quick-action-button" onAction="#handleSearch" />
+                <Button fx:id="clearButton" text="Reseteaza" styleClass="quick-action-button-secondary" onAction="#handleClearFilters" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="eventsTable" styleClass="section-card">
+            <columns>
+                <TableColumn fx:id="colData" text="Data" />
+                <TableColumn fx:id="colDenumire" text="Denumire Eveniment" />
+                <TableColumn fx:id="colClient" text="Client" />
+                <TableColumn fx:id="colSala" text="Sala" />
+                <TableColumn fx:id="colStatus" text="Status" />
+                <TableColumn fx:id="colPret" text="Pret Total" />
+                <TableColumn fx:id="colActiuni" text="Angajati" prefWidth="100" />
+                <TableColumn fx:id="colServicii" text="Servicii" prefWidth="100" />
+            </columns>
+            <BorderPane.margin>
+                <Insets top="20.0" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+
+    <right>
+        <VBox spacing="10" styleClass="section-card">
+            <padding>
+                <Insets left="20.0" />
+            </padding>
+            <Button fx:id="btnAdd" text="➕ Adauga Eveniment" maxWidth="Infinity" onAction="#handleAddEvent" />
+            <Button fx:id="btnEdit" text="✎ Modifica Selectat" maxWidth="Infinity" disable="true" onAction="#handleEditEvent" />
+            <Button fx:id="btnDelete" text="🗑 Sterge Selectat" maxWidth="Infinity" disable="true" onAction="#handleDeleteEvent" />
+        </VBox>
+    </right>
+</BorderPane>

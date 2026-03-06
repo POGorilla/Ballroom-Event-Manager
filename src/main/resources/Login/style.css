@@ -1,0 +1,104 @@
+.root {
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-background-color: #FFFFFF;
+}
+
+.left-panel {
+    -fx-background-color: #D4AF37;
+    -fx-padding: 40px;
+}
+
+.title-large {
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.subtitle-small {
+    -fx-font-size: 18px;
+    -fx-font-weight: normal;
+    -fx-text-fill: white;
+    -fx-opacity: 0.8;
+}
+
+.right-panel {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 50px;
+    -fx-alignment: center;
+}
+
+.login-form-container {
+    -fx-max-width: 350px;
+}
+
+.form-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding-bottom: 20px;
+}
+
+.form-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #555555;
+}
+
+.form-input {
+    -fx-font-size: 14px;
+    -fx-background-color: #F4F4F4;
+    -fx-border-color: #E0E0E0;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1px;
+    -fx-padding: 12px;
+
+
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+.form-input:focused {
+    -fx-border-color: #D4AF37;
+    -fx-border-width: 2px;
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow(gaussian, rgba(212, 175, 55, 0.3), 10, 0, 0, 0);
+}
+
+.login-button {
+    -fx-background-color: #D4AF37;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-padding: 12px;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+.login-button:hover {
+    -fx-background-color: #B8860B;
+}
+
+.error-label {
+    -fx-text-fill: #D32F2F;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.logo-title {
+    -fx-font-family: "Gabriola", "Garamond", "Georgia", serif;
+    -fx-font-size: 42px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #D4AF37;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5, 0, 0, 2);
+    -fx-padding: -10 0 -10 0;
+}
+
+.logo-subtitle {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 9px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #888888;
+    -fx-padding: 5 0 20 0;
+    -fx-opacity: 0.9;
+}

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormularEvenimentController">
+    <children>
+
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+
+                <VBox spacing="20" styleClass="dashboard-container">
+                    <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                    </padding>
+                    <children>
+                        <Label fx:id="titleLabel" styleClass="dashboard-title" text="Adauga Eveniment Nou" />
+
+                        <GridPane hgap="10" vgap="15">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="NEVER" minWidth="120.0" />
+                                <ColumnConstraints hgrow="ALWAYS" />
+                            </columnConstraints>
+
+                            <Label styleClass="form-label" text="Denumire Eveniment" GridPane.rowIndex="0" />
+                            <TextField fx:id="denumireField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                            <Label styleClass="form-label" text="Client" GridPane.rowIndex="1" />
+                            <ComboBox fx:id="clientComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                            <Label styleClass="form-label" text="Sala" GridPane.rowIndex="2" />
+                            <ComboBox fx:id="salaComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                            <Label styleClass="form-label" text="Data Inceput" GridPane.rowIndex="3" />
+                            <DatePicker fx:id="dataInceputPicker" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                            <Label styleClass="form-label" text="Data Sfarsit" GridPane.rowIndex="4" />
+                            <DatePicker fx:id="dataSfarsitPicker" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                            <Label styleClass="form-label" text="Nr. Persoane" GridPane.rowIndex="5" />
+                            <TextField fx:id="nrPersoaneField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                            <Label styleClass="form-label" text="Status" GridPane.rowIndex="6" />
+                            <ComboBox fx:id="statusComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                            <Label styleClass="form-label" text="Pret Total (RON)" GridPane.rowIndex="7" />
+                            <TextField fx:id="pretField" editable="false" style="-fx-font-weight: bold; -fx-background-color: #33363A;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                            <rowConstraints>
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                                <RowConstraints />
+                            </rowConstraints>
+
+                        </GridPane>
+
+                        <TitledPane animated="true" collapsible="true" expanded="false" text="Alocare Personal (Angajati)">
+                            <content>
+                                <HBox prefHeight="200" spacing="10" style="-fx-padding: 10px 0 0 0;">
+                                    <VBox HBox.hgrow="ALWAYS">
+                                        <Label styleClass="form-label" text="Angajati Disponibili" />
+                                        <ListView fx:id="availableAngajatiList" />
+                                    </VBox>
+
+                                    <VBox alignment="CENTER" spacing="10">
+                                        <Button fx:id="addAngajatBtn" onAction="#handleAddAngajat" text="&gt;" />
+                                        <Button fx:id="removeAngajatBtn" onAction="#handleRemoveAngajat" text="&lt;" />
+                                    </VBox>
+
+                                    <VBox HBox.hgrow="ALWAYS">
+                                        <Label styleClass="form-label" text="Angajati Alocati Evenimentului" />
+                                        <ListView fx:id="assignedAngajatiList" />
+                                    </VBox>
+                                </HBox>
+                            </content>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </TitledPane>
+
+                        <TitledPane animated="true" collapsible="true" expanded="false" text="Alocare Servicii">
+                            <content>
+                                <HBox prefHeight="200" spacing="10" style="-fx-padding: 10px 0 0 0;">
+                                    <VBox HBox.hgrow="ALWAYS">
+                                        <Label styleClass="form-label" text="Servicii Disponibile" />
+                                        <ListView fx:id="availableServiciiList" />
+                                    </VBox>
+
+                                    <VBox alignment="CENTER" spacing="10">
+                                        <Button fx:id="addServiciuBtn" onAction="#handleAddServiciu" text="&gt;" />
+                                        <Button fx:id="removeServiciuBtn" onAction="#handleRemoveServiciu" text="&lt;" />
+                                    </VBox>
+
+                                    <VBox HBox.hgrow="ALWAYS">
+                                        <Label styleClass="form-label" text="Servicii Alocate Evenimentului" />
+                                        <ListView fx:id="assignedServiciiList" />
+                                    </VBox>
+                                </HBox>
+                            </content>
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </TitledPane>
+
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Button fx:id="saveButton" onAction="#handleSave" styleClass="quick-action-button" text="Salveaza" />
+                            <Button fx:id="cancelButton" onAction="#handleCancel" styleClass="quick-action-button-secondary" text="Anuleaza" />
+                        </HBox>
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

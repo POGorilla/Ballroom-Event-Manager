@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="750.0" prefWidth="1200.0" spacing="15" styleClass="dashboard-container" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminPanelController">
+
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <Label styleClass="dashboard-title" text="Panou Administrare &amp; Securitate" />
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+
+        <Tab text="Gestiune Angajati">
+            <VBox spacing="15">
+                <padding><Insets top="15" /></padding>
+
+                <TableView fx:id="angajatiTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colAngNume" prefWidth="120" text="Nume" />
+                        <TableColumn fx:id="colAngPrenume" prefWidth="120" text="Prenume" />
+                        <TableColumn fx:id="colAngFunctie" prefWidth="120" text="Functie" />
+                        <TableColumn fx:id="colAngTelefon" prefWidth="100" text="Telefon" />
+                        <TableColumn fx:id="colAngEmail" prefWidth="180" text="Email" />
+                        <TableColumn fx:id="colAngSalariu" prefWidth="90" text="Salariu" />
+                        <TableColumn fx:id="colAngSupervisorName" prefWidth="150" text="Supervizor" />
+                    </columns>
+                    <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+                </TableView>
+
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #D4AF37;" text="Adauga / Modifica Angajat:" />
+
+                <HBox spacing="15">
+                    <TextField fx:id="tfAngNume" promptText="Nume" />
+                    <TextField fx:id="tfAngPrenume" promptText="Prenume" />
+                    <ComboBox fx:id="cbAngFunctie" prefWidth="150" promptText="Functie" />
+                    <TextField fx:id="tfAngTelefon" promptText="Telefon" />
+                    <TextField fx:id="tfAngEmail" prefWidth="180" promptText="Email" />
+                </HBox>
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <TextField fx:id="tfAngSalariu" prefWidth="120" promptText="Salariu (RON)" />
+
+                    <ComboBox fx:id="cbAngSupervisor" prefWidth="220" promptText="Alege Supervizor (Optional)" />
+
+                    <VBox HBox.hgrow="ALWAYS" alignment="CENTER_RIGHT">
+                        <HBox spacing="10" alignment="CENTER_RIGHT">
+                            <Button onAction="#handleAddAngajat" styleClass="btn-primary" text="Adauga" />
+                            <Button onAction="#handleUpdateAngajat" styleClass="btn-secondary" text="Modifica" />
+                            <Button onAction="#handleDeleteAngajat" styleClass="quick-action-button-secondary" text="Sterge Selectat" />
+                            <Button onAction="#handleClearAngajat" styleClass="btn-secondary" text="Curata" />
+                        </HBox>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <Tab text="Utilizatori Sistem">
+            <VBox spacing="15">
+                <padding><Insets top="15" /></padding>
+
+                <TableView fx:id="usersTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colUserUser" prefWidth="120" text="Username" />
+                        <TableColumn fx:id="colUserNume" prefWidth="120" text="Nume" />
+                        <TableColumn fx:id="colUserPrenume" prefWidth="120" text="Prenume" />
+                        <TableColumn fx:id="colUserRol" prefWidth="100" text="Rol" />
+                        <TableColumn fx:id="colUserAngajatNume" prefWidth="150" text="Angajat Asociat" />
+                    </columns>
+                    <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+                </TableView>
+
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #D4AF37;" text="Creeaza Utilizator:" />
+
+                <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color: #f9f9f9; -fx-padding: 10; -fx-background-radius: 5;">
+                    <VBox spacing="5">
+                        <Label text="Metoda 1: Din Angajat existent" style="-fx-font-size: 10px; -fx-text-fill: gray;"/>
+                        <ComboBox fx:id="cbUserLinkAngajat" prefWidth="200" promptText="Selecteaza Angajat..." />
+                    </VBox>
+
+                    <Label text="SAU" style="-fx-font-weight: bold;"/>
+
+                    <CheckBox fx:id="chkUserExtern" text="Utilizator Extern (Non-Angajat)" />
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <TextField fx:id="tfUserUser" promptText="Username (Login)" />
+                    <PasswordField fx:id="tfUserPass" promptText="Parola" />
+
+                    <TextField fx:id="tfUserNume" promptText="Nume" disable="true"/>
+                    <TextField fx:id="tfUserPrenume" promptText="Prenume" disable="true"/>
+
+                    <ComboBox fx:id="cbUserRol" promptText="Rol" prefWidth="120"/>
+
+                    <VBox HBox.hgrow="ALWAYS" alignment="CENTER_RIGHT">
+                        <HBox spacing="10" alignment="CENTER_RIGHT">
+                            <Button onAction="#handleAddUser" styleClass="btn-primary" text="Salveaza User" />
+                            <Button onAction="#handleDeleteUser" style="-fx-background-color: #cc0000; -fx-text-fill: white;" text="Sterge" />
+                        </HBox>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <Tab text="Loguri Acces">
+            <VBox spacing="15">
+                <padding><Insets top="15" /></padding>
+
+                <TableView fx:id="logsTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colLogUserTried" prefWidth="150" text="Username Incercat" />
+                        <TableColumn fx:id="colLogDate" prefWidth="200" text="Data si Ora" />
+                        <TableColumn fx:id="colLogStatus" prefWidth="120" text="Status" />
+                    </columns>
+                    <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+                </TableView>
+
+                <HBox alignment="CENTER_RIGHT">
+                    <Button text="Reimprospateaza" onAction="#handleRefreshLogs" styleClass="btn-secondary"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <Tab text="Gestiune Sali">
+            <VBox spacing="15">
+                <padding><Insets top="15" /></padding>
+
+                <TableView fx:id="saliTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colSalaDenumire" prefWidth="220" text="Denumire" />
+                        <TableColumn fx:id="colSalaCapacitate" prefWidth="120" text="Capacitate" />
+                        <TableColumn fx:id="colSalaPretOra" prefWidth="120" text="Pret / Ora" />
+                        <TableColumn fx:id="colSalaDisponibil" prefWidth="120" text="Disponibil" />
+                    </columns>
+                    <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+                </TableView>
+
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #D4AF37;" text="Adauga / Modifica Sala:" />
+
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <TextField fx:id="tfSalaDenumire" promptText="Denumire" prefWidth="220" />
+                    <TextField fx:id="tfSalaCapacitate" promptText="Capacitate" prefWidth="120" />
+                    <TextField fx:id="tfSalaPretOra" promptText="Pret / ora" prefWidth="120" />
+                    <CheckBox fx:id="chkSalaDisponibila" text="Disponibila" selected="true" />
+
+                    <VBox HBox.hgrow="ALWAYS" alignment="CENTER_RIGHT">
+                        <HBox spacing="10" alignment="CENTER_RIGHT">
+                            <Button onAction="#handleAddSala" styleClass="btn-primary" text="Adauga" />
+                            <Button onAction="#handleUpdateSala" styleClass="btn-secondary" text="Modifica" />
+                            <Button onAction="#handleDeleteSala" styleClass="quick-action-button-secondary" text="Sterge" />
+                            <Button onAction="#handleClearSala" styleClass="btn-secondary" text="Curata" />
+                        </HBox>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <Tab text="Gestiune Servicii">
+            <VBox spacing="15">
+                <padding><Insets top="15" /></padding>
+
+                <TableView fx:id="serviciiTable" styleClass="table-view" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colServDenumire" prefWidth="220" text="Denumire" />
+                        <TableColumn fx:id="colServPret" prefWidth="120" text="Pret" />
+                        <TableColumn fx:id="colServDescriere" prefWidth="400" text="Descriere" />
+                    </columns>
+                    <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY" /></columnResizePolicy>
+                </TableView>
+
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #D4AF37;" text="Adauga / Modifica Serviciu:" />
+
+                <HBox spacing="15" alignment="TOP_LEFT">
+                    <VBox spacing="10">
+                        <TextField fx:id="tfServDenumire" promptText="Denumire" prefWidth="260" />
+                        <TextField fx:id="tfServPret" promptText="Pret" prefWidth="120" />
+                    </VBox>
+
+                    <TextArea fx:id="taServDescriere" promptText="Descriere (optional)" prefWidth="520" prefHeight="90" wrapText="true" />
+
+                    <VBox HBox.hgrow="ALWAYS" alignment="TOP_RIGHT">
+                        <HBox spacing="10" alignment="CENTER_RIGHT">
+                            <Button onAction="#handleAddServiciu" styleClass="btn-primary" text="Adauga" />
+                            <Button onAction="#handleUpdateServiciu" styleClass="btn-secondary" text="Modifica" />
+                            <Button onAction="#handleDeleteServiciu" styleClass="quick-action-button-secondary" text="Sterge" />
+                            <Button onAction="#handleClearServiciu" styleClass="btn-secondary" text="Curata" />
+                        </HBox>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+</VBox>

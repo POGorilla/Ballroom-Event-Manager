@@ -1,0 +1,151 @@
+.root {
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
+    -fx-base: #1E2125;
+}
+
+.content-area {
+    -fx-background-color: #1E2125;
+}
+
+.nav-panel {
+    -fx-background-color: #2C2F33;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #E0E0E0;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 12px 20px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-graphic-text-gap: 12px;
+    -fx-transition: all 0.2s ease-in-out;
+    -fx-border-color: transparent transparent transparent transparent;
+    -fx-border-width: 0 0 0 4px;
+}
+
+
+.nav-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+}
+
+
+.nav-button:focused {
+    -fx-background-color: rgba(212, 175, 55, 0.1);
+    -fx-text-fill: #D4AF37;
+    -fx-border-color: transparent transparent transparent #D4AF37;
+}
+
+.nav-button-logout {
+    -fx-background-color: rgba(211, 47, 47, 0.8);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-padding: 12px 20px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-graphic-text-gap: 12px;
+}
+.nav-button-logout:hover {
+    -fx-background-color: #D32F2F;
+}
+
+.dashboard-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+}
+
+.kpi-card, .section-card {
+    -fx-background-color: #2C2F33;
+    -fx-padding: 20px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 10, 0, 0, 2);
+}
+
+
+.kpi-title, .section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #AAAAAA;
+}
+
+.kpi-value {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #D4AF37;
+}
+.kpi-value-secondary {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #D4AF37;
+}
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-control-inner-background: #2C2F33;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #2C2F33;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-text-fill: #D4AF37;
+    -fx-border-color: #1E2125;
+    -fx-border-width: 0 0 2px 0;
+}
+
+.table-view .cell {
+    -fx-border-width: 0;
+    -fx-padding: 8px;
+    -fx-text-fill: #E0E0E0;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+}
+
+.table-view .table-row-cell:empty {
+    -fx-background-color: transparent;
+}
+
+.chart-bar {
+    -fx-bar-fill: #D4AF37;
+    -fx-background-insets: 0, 0;
+    -fx-padding: 0;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.axis {
+    -fx-tick-label-fill: #AAAAAA;
+    -fx-tick-mark-stroke: #AAAAAA;
+    -fx-border-color: #AAAAAA;
+}
+.chart-title {
+    -fx-text-fill: #FFFFFF;
+}
+.chart-legend {
+    -fx-text-fill: #FFFFFF;
+}
+
+
+
+.left-panel {
+    -fx-background-color: #D4AF37;
+    -fx-padding: 40px;
+}
+.right-panel {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 50px;
+}
+
