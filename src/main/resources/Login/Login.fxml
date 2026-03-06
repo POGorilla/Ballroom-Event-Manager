@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.LoginController"
+      prefHeight="600.0" prefWidth="900.0">
+
+    <children>
+        <VBox styleClass="left-panel" alignment="CENTER" prefWidth="400" HBox.hgrow="ALWAYS">
+            <children>
+                <Label text="Ballroom" styleClass="title-large" />
+                <Label text="Event Management" styleClass="subtitle-small" />
+            </children>
+        </VBox>
+
+        <StackPane styleClass="right-panel" HBox.hgrow="ALWAYS">
+            <VBox styleClass="login-form-container" alignment="CENTER_LEFT" maxWidth="350" spacing="20">
+                <children>
+                    <Label text="Autentificare" styleClass="form-title" />
+
+                    <VBox spacing="5">
+                        <Label text="Utilizator" styleClass="form-label" />
+                        <TextField fx:id="usernameField" promptText="Introdu utilizatorul" styleClass="form-input" />
+                    </VBox>
+
+                    <VBox spacing="5">
+                        <Label text="Parola" styleClass="form-label" />
+                        <PasswordField fx:id="passwordField" promptText="••••••••••" styleClass="form-input" />
+                    </VBox>
+
+                    <Button fx:id="loginButton" text="Login" onAction="#handleLoginButtonAction"
+                            styleClass="login-button" maxWidth="Infinity" />
+
+                    <Label fx:id="errorLabel" styleClass="error-label" visible="false"
+                           text="Utilizator sau parola incorecta." />
+                </children>
+            </VBox>
+        </StackPane>
+    </children>
+</HBox>

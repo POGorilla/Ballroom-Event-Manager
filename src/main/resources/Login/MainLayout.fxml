@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?> <?import javafx.scene.layout.Region?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.MainLayoutController"
+            prefHeight="720.0" prefWidth="1280.0"
+            styleClass="root">
+
+    <left>
+        <VBox styleClass="nav-panel" prefWidth="250" spacing="10">
+            <padding>
+                <Insets top="20" left="10" right="10" bottom="20" />
+            </padding>
+            <children>
+
+                <VBox alignment="CENTER" spacing="0">
+                    <Label text="BALLROOM" styleClass="logo-title" />
+                    <Label text="EVENT MANAGER" styleClass="logo-subtitle" />
+                    <VBox.margin>
+                        <Insets top="40.0" bottom="50.0" />
+                    </VBox.margin>
+                </VBox>
+
+                <Button fx:id="btnDashboard" text="Dashboard" onAction="#handleDashboardClick"
+                        styleClass="nav-button" maxWidth="Infinity">
+                    <graphic>
+                        <SVGPath style="-fx-fill: #D4AF37;"
+                                 content="M0 0h24v24H0V0z M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="btnEvenimente" text="Evenimente" onAction="#handleEvenimenteClick"
+                        styleClass="nav-button" maxWidth="Infinity">
+                    <graphic>
+                        <SVGPath style="-fx-fill: #D4AF37;"
+                                 content="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="btnRapoarte" onAction="#handleOpenReports" maxWidth="Infinity" prefHeight="50.0" styleClass="menu-button">
+                    <graphic>
+                        <SVGPath content="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2v-3h2v3zm4 0h-2v-5h2v5z"
+                                 fill="#D4AF37"/>
+                    </graphic>
+                    <text>Rapoarte si Statistici</text>
+                </Button>
+
+                <Button onAction="#handleAdminPanel" maxWidth="Infinity" prefHeight="50.0" styleClass="menu-button">
+                    <graphic>
+                        <SVGPath content="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM8.9 6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2H8.9V6z"
+                                 fill="#D4AF37" scaleX="1.2" scaleY="1.2"/>
+                    </graphic>
+                    <text>Admin Panel</text>
+                </Button>
+
+                <Region VBox.vgrow="ALWAYS" />
+
+                <Button fx:id="btnLogout" text="Logout" onAction="#handleLogout"
+                        styleClass="nav-button-logout" maxWidth="Infinity">
+                    <graphic>
+                        <SVGPath style="-fx-fill: #555555;"
+                                 content="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                    </graphic>
+                </Button>
+            </children>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area">
+        </StackPane>
+    </center>
+
+</BorderPane>
